@@ -117,19 +117,21 @@ during server rendering.
 
 ### TypeScript support
 
-Deno's type checker does not natively understand `*.module.css` imports. Fresh
-ships an ambient type declaration to fix this. Add it to your `deno.json`:
+Deno's type checker does not natively understand `*.module.css` imports. Add
+`vite/client` to your `deno.json` to pick up Vite's ambient types (which cover
+CSS Modules, `?url`/`?raw` imports, and `import.meta.env`):
 
 ```jsonc deno.json
 {
   "compilerOptions": {
-    "types": ["fresh/css-modules"]
+    "types": ["vite/client"]
   }
 }
 ```
 
 This declares `*.module.css` imports as `Record<string, string>`, which gives
-you autocompletion and type safety for class name lookups.
+you autocompletion and type safety for class name lookups. Projects scaffolded
+with `deno run -A jsr:@fresh/init` already include this.
 
 ## Route-scoped CSS
 

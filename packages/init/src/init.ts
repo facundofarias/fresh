@@ -604,7 +604,7 @@ if (Deno.args.includes("build")) {
   };
 
   if (useVite) {
-    denoJson.compilerOptions.types = ["vite/client", "fresh/css-modules"];
+    denoJson.compilerOptions.types = ["vite/client"];
     denoJson.tasks.dev = "vite";
     denoJson.tasks.build = "vite build";
 
